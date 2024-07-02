@@ -1,0 +1,21 @@
+{
+  "name": "server-app",
+  "version": "1.0.0",
+  "description": "node api",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "api",
+    "server"
+  ],
+  "author": "maureen",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "request-ip": "^3.3.0"
+  }
+}
