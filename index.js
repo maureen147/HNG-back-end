@@ -7,6 +7,7 @@ const WEATHER_API_KEY = 'ff9b7b2424b1421e94b74126240307';
 
 app.get('/api/hello', async (req, res) => {
     const clientIp = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const visitorName = req.query.visitor_name || 'Guest';
 
     try {
         // Get client location based on IP
@@ -17,7 +18,7 @@ app.get('/api/hello', async (req, res) => {
         const weatherResponse = await axios.get(`http://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${clientLocation}`);
         const temperature = weatherResponse.data.current.temp_c;
 
-        const greeting = `Hello, maureen! The temperature is ${temperature} degrees Celsius in ${clientLocation}`;
+        const greeting = `Hello, ${visitorName}! The temperature is ${temperature} degrees Celsius in ${clientLocation}`;
 
         console.log(`clientIp: ${clientIp}, ClientLocation: ${clientLocation}, temperature: ${temperature}, greeting: ${greeting}`);
 
